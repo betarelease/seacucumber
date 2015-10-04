@@ -1,0 +1,29 @@
+== seacucumber - Javascript testing automation through rake commandline - Real browser driven javascript testing.
+
+http://github.com/betarelease/seacucumber
+
+seacucumber will automate javascript testing effort by running tests in all supported browsers for an OS. seacucumber will fail the build and print a detailed report about javascript test status.
+
+== seacucumber support
+
+- Linux, OSX, Windows
+- Firefox, Safari, IE
+- Prototype, JQuery, Screw-Unit, Scriptaculous
+
+== Installation and Usage
+
+- download project from github
+- add it to your project near your javascript code
+- Map the following folders to the correct folders in your project
+
+task.mount("/", ".")
+task.mount("/js", "js")
+task.mount("/css", "css")
+
+# Find all tests and run them
+FileList["test/*_test.html"].each do |file|
+  task.run(file)
+end
+
+
+- Run 'rake js:tests'.
